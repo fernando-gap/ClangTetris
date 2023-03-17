@@ -3,6 +3,10 @@
 
 #include "../macros.h"
 #include "./I_shape/I_shape.h"
+#include "./L_shape/L_shape.h"
+#include "./S_shape/S_shape.h"
+#include "./O_shape/O_shape.h"
+#include "./K_shape/K_shape.h"
 #include "enums.h"
 
 typedef struct Shape {

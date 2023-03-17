@@ -14,10 +14,16 @@ add_executable(tetris
     src/shape/shape.h
     src/shape/I_shape/I_shape.c
     src/shape/I_shape/I_rotate.c
+    src/shape/L_shape/L_rotate.c
+    src/shape/L_shape/L_shape.c
+    src/shape/S_shape/S_shape.c
+    src/shape/S_shape/S_rotate.c
+    src/shape/O_shape/O_shape.c
+    src/shape/K_shape/K_shape.c
+    src/shape/K_shape/K_rotate.c
     src/shape/alloc.c
     src/shape/collision.c
     src/shape/update.c
-    src/shape/O_shape.c
     src/color/color.c
     src/board/board.c
     src/window/window.c

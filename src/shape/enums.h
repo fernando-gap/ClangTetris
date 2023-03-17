@@ -21,7 +21,8 @@ typedef enum ShapeTypes {
     SHAPE_L = 3,
     SHAPE_O = 4,
     SHAPE_REVERSE_S = 5,
-    SHAPE_NONE = 6
+    SHAPE_REVERSE_L = 6,
+    SHAPE_K = 7
 } ShapeTypes;
 
 #endif

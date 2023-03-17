@@ -27,5 +27,6 @@ int GAME_CheckForTetris(BoardRow **firstTetris, BoardRow **lastTetris);
 
 void GAME_FreeBoard();
 void GAME_AllocBoard();
+void GAME_ResetBoard();
 
 #endif

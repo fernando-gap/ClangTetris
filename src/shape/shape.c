@@ -31,12 +31,19 @@ void GAME_RotateShape(Shape *shape) {
             GAME_RotateShape_I(shape);
             break;
         case SHAPE_S:
+            GAME_RotateShape_S(shape);
             break;
         case SHAPE_REVERSE_S:
-            break;
-        case SHAPE_O:
+            GAME_RotateShape_RS(shape);
             break;
         case SHAPE_L:
+            GAME_RotateShape_L(shape);
+            break;
+        case SHAPE_REVERSE_L:
+            GAME_RotateShape_RL(shape);
+            break;
+        case SHAPE_K:
+            GAME_RotateShape_K(shape);
             break;
     }
 }
@@ -94,8 +101,8 @@ int GAME_GameOver(Shape *shape) {
                 }
             }
         }
-        printf("Game Over\n");
         GAME_FreeShape(shape);
+        GAME_ResetBoard();
         return 1;
     }
     return 0;
@@ -217,7 +224,17 @@ int GAME_RotationSpaceY(Shape *shape, int shapeWidth) {
 
 
 Shape *GAME_CreateRandomShape() {
-    return GAME_CreateShape_I();
+    Shape *(*shapeFunctions[])() = {
+        GAME_CreateShape_I,
+        GAME_CreateShape_K,
+        GAME_CreateShape_L,
+        GAME_CreateShape_RL,
+        GAME_CreateShape_S,
+        GAME_CreateShape_RS,
+        GAME_CreateShape_O
+    };
+    int randomNum = rand() % 7;
+    return (*shapeFunctions[randomNum])();
 }
 
 int GAME_IsEmptyShape(Shape *shape) {

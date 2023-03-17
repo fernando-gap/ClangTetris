@@ -48,10 +48,10 @@ void GAME_UpdateTetrisRender(Uint64 frameStart) {
     GAME_RenderBoardShapes();
 
     if (GAME_UpdateCurrentShape(currentSelect, frameStart)) {
-        //if (GAME_GameOver(currentSelect)) {
-        //    currentSelect = NULL;
-        //    return;
-        //}
+        if (GAME_GameOver(currentSelect)) {
+            currentSelect = NULL;
+            return;
+        }
 
         GAME_AddShapeBorder(currentSelect);
         currentSelect = NULL;
@@ -75,16 +75,6 @@ int GAME_UpdateCurrentShape(Shape *shape, Uint64 frameStart) {
     /* Checks if the current shape touches the ground*/
     if (shape != NULL)
         GAME_RenderShape(shape);
-        SDL_SetRenderDrawColor(GAME_Win.renderer, 255, 0, 0, 0);
-        SDL_RenderDrawRect(GAME_Win.renderer, shape->r1);
-        SDL_SetRenderDrawColor(GAME_Win.renderer, 0, 255, 0, 0);
-        SDL_RenderDrawRect(GAME_Win.renderer, shape->r2);
-        SDL_SetRenderDrawColor(GAME_Win.renderer, 0, 0, 255, 0);
-        SDL_RenderDrawRect(GAME_Win.renderer, shape->r3);
-        SDL_SetRenderDrawColor(GAME_Win.renderer, 255, 255, 0, 0);
-        SDL_RenderDrawRect(GAME_Win.renderer, shape->r4);
-
-
         if (GAME_DelayShapeVelocity(frameStart)) {
             if (GAME_DetectBoardCollision(shape, BOTTOM_EDGE)) {
                 return 1;

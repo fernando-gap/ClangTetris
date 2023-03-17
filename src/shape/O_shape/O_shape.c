@@ -1,5 +1,5 @@
-#include "shape.h"
-#include "../color/color.h"
+#include "../shape.h"
+#include "../../color/color.h"
 #include "SDL.h"
 
 Shape *GAME_CreateShape_O() {

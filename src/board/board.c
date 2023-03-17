@@ -91,6 +91,22 @@ void GAME_FreeBoard() {
     }
 }
 
+void GAME_ResetBoard() {
+    BoardRow *tmpShapeRects = shapeRects;
+    int j = 0;
+    while (tmpShapeRects != NULL) {
+        if (tmpShapeRects->col != NULL)
+            for (int i = 0; i < 10; i++) {
+                if (tmpShapeRects->col[i].rect != NULL) {
+                    tmpShapeRects->col[i].rect = NULL;
+                }
+            }
+
+        BoardRow *tmp = tmpShapeRects;
+        tmpShapeRects = tmpShapeRects->nextRow;
+    }
+}
+
 BoardCol *GAME_FindBoardCol(BoardRow *boardRow, int x) {
     for (int i = 0; i < 10; i++) {
         if (boardRow->col[i].x == x) {

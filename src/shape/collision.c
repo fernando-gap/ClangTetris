@@ -45,6 +45,7 @@ int GAME_DetectBoardShapeCollision(Shape *shape, RectangleSides where) {
 }
 
 /* TODO: try to reuse this function to other shapes as well*/
+/* TODO: Move shape outside top */
 void GAME_MoveShapeOutsideShape(Shape *shape) {
     BoardRow *boardRow = GAME_FindBoardRow(shape->r3->y);
 
